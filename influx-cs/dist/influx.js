@@ -178,7 +178,7 @@
         var sourceInfo = dataSourceUtil.getSourceInfo(sourceName);
         var EIToken = commonUtil.getCookie("EIToken");
         var orgId = parseInt(commonUtil.getParamFromURL('org_id'));
-        var queryType = '/api/databaseSource/influx/query';
+        var queryType = '/api/databaseSource/influx/set';
         reqTargets = reqTargets.map(function (item, index, array){
             item.rawSql = dataRefreshUtil.variableSrv.replaceWithText(item.rawSql);
             return item;

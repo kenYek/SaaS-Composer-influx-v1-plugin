@@ -19,13 +19,11 @@
     var num = Math.round(Math.random()*50);
     var targets = [
         {
-            rawSql: "INSERT cpu,host=server01,region=uswest value=0.63",
-            scDataType: "value",
-            sourceType: "InfluxV1",
-            target: "set",
-            type: "set"
+            measurement: 'cpu',
+            tags: { host: 'server02', region: 'us-west' },
+            fields: { value: num },
         }
-    ]
+        ]
     scPlugin['datasource']['influx-cs'].setValue('InfluxV1', targets);
 
 The first parameter in setValue is the data source name, Set in config page.  

@@ -54,6 +54,28 @@ async function getDataInflux(req, res) {
     }
 }
 
+async function setDataInflux(req, res) {
+  const data = req.body;
+  const jsonData = JSON.parse(data.jsondata);
+  const influx = new Influx.InfluxDB({
+      host: data.url,
+      database: data.database,
+      port: Number(jsonData.port),
+      username: data.user,
+      password: data.password
+  });
+  const r = { errCode: 0, data: [] };
+  console.log('---- set ----');
+  try {
+    await influx.writePoints(data.targets);
+    res.json(r);
+  }  catch (err) {
+    r.errCode = 1;
+    r.data = err.message;
+    res.json(r);
+  }
+}
+
 async function checkConnect(req, res) {
     const data = req.body;
     const jsonData = JSON.parse(data.jsondata);
@@ -81,6 +103,8 @@ async function checkConnect(req, res) {
 }
 
 app.post('/api/databaseSource/influx/query', getDataInflux);
+
+app.post('/api/databaseSource/influx/set', setDataInflux);
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
