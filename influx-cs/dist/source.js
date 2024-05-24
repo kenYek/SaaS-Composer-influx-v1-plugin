@@ -100,13 +100,6 @@ var compInfluxV1Cs={
       <span v-if="!scopeRow.isEdit" data-v-e529bd94=""><input type="password" v-model="scopeRow.password" style="background:transparent;border:0px transparent;" data-v-e529bd94=""></span>
       <el-input v-if="scopeRow.isEdit" size="small" type="password" v-model="scopeRow.password" data-v-e529bd94=""></el-input>
    </el-form-item>
-   <el-form-item label="SSL Mode" class="content" data-v-e529bd94="">
-      <span v-if="!scopeRow.isEdit" data-v-e529bd94="">{{ scopeRow.json_data.sslMode }}</span>
-      <el-select v-model="scopeRow.json_data.sslMode" placeholder="" data-v-e529bd94="">
-       <el-option v-for="item in sslModeItems" :key="item.value" :label="item.label" :value="item.value" data-v-e529bd94="">
-       </el-option>
-     </el-select>
-   </el-form-item>
    <el-row data-v-e529bd94="">
      <el-button icon="el-icon-refresh" @click="checkSourceConnection(scopeRow)" data-v-e529bd94=""></el-button>
    </el-row>
@@ -208,18 +201,18 @@ var compInfluxV1Cs={
         me.msgBox({message: this.$t('dataSource.message.emptyDatabase'), type: 'warning', duration: 2000})
         return false
       }
-      if (row.user === '') {
-        me.msgBox({message: this.$t('dataSource.message.emptyUser'), type: 'warning', duration: 2000})
-        return false
-      }
-      if (row.password === '') {
-        me.msgBox({message: this.$t('dataSource.message.emptyPassword'), type: 'warning', duration: 2000})
-        return false
-      }
-      if (!row.json_data.sslMode) {
-        me.msgBox({message: this.$t('dataSource.message.emptySslMode'), type: 'warning', duration: 2000})
-        return false
-      }
+      // if (row.user === '') {
+      //   me.msgBox({message: this.$t('dataSource.message.emptyUser'), type: 'warning', duration: 2000})
+      //   return false
+      // }
+      // if (row.password === '') {
+      //   me.msgBox({message: this.$t('dataSource.message.emptyPassword'), type: 'warning', duration: 2000})
+      //   return false
+      // }
+      // if (!row.json_data.sslMode) {
+      //   me.msgBox({message: this.$t('dataSource.message.emptySslMode'), type: 'warning', duration: 2000})
+      //   return false
+      // }
       return true;
     }
   }

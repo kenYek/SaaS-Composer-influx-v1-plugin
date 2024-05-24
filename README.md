@@ -1,6 +1,6 @@
-# SaaS Composer MSSQL plugin & Data source server  
+# SaaS Composer InfluxDB v1.x plugin & Data source server  
 
-1. Import SaaS Composer Datasource plugin with file **mssql-cs.zip**  
+1. Import SaaS Composer Datasource plugin with file **influx-cs.zip**  
 2. Use command `npm install` to install all node modules.  
 3. Call `npm run serv` to start datasource server.  
 
