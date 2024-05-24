@@ -1,10 +1,10 @@
 (function(global) {
     if(global.scPlugin &&
         global.scPlugin.datasource &&
-        global.scPlugin.datasource["mssql-cs"]){
+        global.scPlugin.datasource["influx-cs"]){
         return;
     }
-    commonUtil.createObjFromString(global,'scPlugin.datasource.mssql-cs',{});
+    commonUtil.createObjFromString(global,'scPlugin.datasource.influx-cs',{});
 
     var datasource = {};
 
@@ -114,7 +114,7 @@
     datasource.getValue = function (sourceName, reqTargets, callback) {
         // console.log('getValue',sourceName, reqTargets);
 
-        var queryType = '/api/databaseSource/mssql/query';
+        var queryType = '/api/databaseSource/influx/query';
         var sourceList = dataSourceUtil.getSourceListByOrg();
         var orgId = parseInt(commonUtil.getParamFromURL('org_id'));
         reqTargets = reqTargets.map(function (item, index, array){
@@ -178,7 +178,7 @@
         var sourceInfo = dataSourceUtil.getSourceInfo(sourceName);
         var EIToken = commonUtil.getCookie("EIToken");
         var orgId = parseInt(commonUtil.getParamFromURL('org_id'));
-        var queryType = '/api/databaseSource/mssql/query';
+        var queryType = '/api/databaseSource/influx/query';
         reqTargets = reqTargets.map(function (item, index, array){
             item.rawSql = dataRefreshUtil.variableSrv.replaceWithText(item.rawSql);
             return item;
@@ -227,5 +227,5 @@
         }));
     }
     
-    global.scPlugin.datasource["mssql-cs"] = datasource;
+    global.scPlugin.datasource["influx-cs"] = datasource;
 })(this);

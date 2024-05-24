@@ -71,7 +71,7 @@
         }
     }
 })("docReady", window);
-var compMssqlCs={
+var compInfluxV1Cs={
     template:`<el-form label-position="left" inline="" class="data-source-form" v-if="scopeRow.expand" data-v-e529bd94="">
    <el-form-item data-v-e529bd94="">
       <span class="title" data-v-e529bd94="">Connection</span>
@@ -111,7 +111,7 @@ var compMssqlCs={
      <el-button icon="el-icon-refresh" @click="checkSourceConnection(scopeRow)" data-v-e529bd94=""></el-button>
    </el-row>
 </el-form>`,
-  name: "compMssqlCs",
+  name: "compInfluxV1Cs",
   props: {
       langTrans: {
          type: Function
@@ -167,7 +167,7 @@ var compMssqlCs={
       }
       if(row && row.access == 'proxy' && row.json_data && row.json_data.sourceurl) {
         var localhostUrl  = row.json_data.sourceurl;
-        var proxyqueryType = '/api/databaseSource/mssql/connect';
+        var proxyqueryType = '/api/databaseSource/influx/connect';
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -187,7 +187,7 @@ var compMssqlCs={
         xhttp.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
       //   xhttp.send(JSON.stringify({'url': row.url}));
         xhttp.send(JSON.stringify({
-         'type':'postgres',
+         'type':'influx',
          'sourceurl':row.sourceurl,
          'url':row.url,
          'password':row.password,

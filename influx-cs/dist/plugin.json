@@ -1,6 +1,6 @@
 {
-  "name": "MSSQL CS",
-  "id": "mssql-cs",
+  "name": "Influx V1 CS",
+  "id": "influx-cs",
   "type": "datasource",
 
   "info": {
@@ -18,10 +18,10 @@
 
   "saascomposer":{
     "version":"1.0.0",
-    "componentName":"compMssqlCs",
+    "componentName":"compInfluxV1Cs",
     "sketch":{
       "privateLibs":[
-        "mssql.js"
+        "influx.js"
       ]
     },
     "management":{
